@@ -13,10 +13,10 @@ The d&b Soundscape DAW Plug-ins enables a Digital Audio Workstation (DAW) or oth
 ## Platforms
 
 ###	Windows: 
-VST (2.0) - 32 & 64 Bit
-AAX - 64 Bit
+#### VST (2.0) - 32 & 64 Bit
+#### AAX - 64 Bit
 
 ###	MacOS:
-VST (2.0) - 32 & 64 Bit
-AU (Audiounit) - 32 & 64 Bit
-AAX - 64 Bit
+#### VST (2.0) - 32 & 64 Bit
+#### AU (Audiounit) - 32 & 64 Bit
+#### AAX - 64 Bit
