@@ -1,22 +1,54 @@
-# DAW Plug-ins for d&b DS100
+# Soundscape Plug-in
 
-Copyright (C) 2017-2018, d&b audiotechnik GmbH
+Copyright (C) 2017-2019, d&b audiotechnik GmbH
 
-## What are DAW-Plug-Ins for d&b DS100
+## What is the Soundscape Plug-in
 
-The d&b Soundscape DAW Plug-Ins are DAW-Plug-Ins to work with d&b Soundscape and the d&b DS100. 
-For more Infos about the d&b Soundscape System and Concept visit: www.dbaudio.com and www.dbsoundscape.com.
-As a good starting point there is the "TI 501d&b Soundscape System design and operation" with detailed description of the d&b soundscape system, the functions, features and configuration options 
-The d&b Soundscape DAW Plug-ins enables a Digital Audio Workstation (DAW) or other Plugin-Host, to control En-Scene and En-Space object parameters of any desired sound object on the DS100 Platform using the OSC protocol. 
+The d&b Soundscape Plug-in allows the positioning of sound objects in a Soundscape system from any Digital Audio Workstation (DAW) using the OSC protocol.
+
+For more information about Soundscape visit www.dbaudio.com or www.dbsoundscape.com.
+
+## Requirements
+
+* d&b DS100 Signal Engine with active En-Scene license.
+* Digital Audio Workstation (DAW) or any other host of your preference with VST3, AU (Audio Unit), or AAX support.
+* d&b Soundscape VST3, AU, or AAX Plug-in.
 
 
-## Platforms
+## Installation on Windows
 
-###	Windows: 
-#### VST (2.0) - 32 & 64 Bit
-#### AAX - 64 Bit
+Copy the d&b Soundscape Plug-in to the designated folder of your DAW.
 
-###	MacOS:
-#### VST (2.0) - 32 & 64 Bit
-#### AU (Audiounit) - 32 & 64 Bit
-#### AAX - 64 Bit
+Note that the Plug-in requires the MS VisualStudio runtime environment to be installed on your system. For this, see ---
+
+### VST3
+
+Copy the .vst3 file to your VST folder:
+* C:\Program Files\Common Files\VST3
+
+### AAX
+
+Copy the .aaxplugin file to the Pro Tools Plug-Ins folder:
+* C:\Program Files\Common Files\Avid\Audio\Plug-Ins
+
+
+## Installation on macOS
+
+Copy the d&b Soundscape Plug-in to the designated folder of your DAW.
+
+### VST3
+
+Copy the .vst3 file to your VST folder:
+* for single user: ... user/<username>/Library/Audio/Plugins/VST
+* for all users: ... SystemHD/Library/Audio/VST
+
+### AU
+
+Copy the .component file to your AU folder:
+* for single user: ... user/<username>/Library/Audio/Plugins/Components
+* for all users: ... SystemHD/Library/Audio/Components
+
+### AAX
+
+Copy the .aax file to your AAX folder:
+* HD/Library/Application Support/Avid/Audio/Plug-Ins
