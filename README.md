@@ -29,3 +29,15 @@ En-Space object parameters:
 -	Digital Audio Workstation (DAW) or any other host of your preference to host one of the Plug-in formats. 
 -	d&b DS100 Signal Engine with active En-Scene and/or En-Space license. 
 -	DS100 and the Plug-in host connected to the same Ethernet network (to establish the OSC communication). 
+
+
+## available Plugin-formats: 
+
+### Windows: 
+	- VST (2.0) - 32 & 64 Bit
+	- AAX - 64 Bit
+
+### macOS: 
+	- VST (2.0) - 32 & 64 Bit
+	- AU (Audiounit) - 32 & 64 Bit
+- AAX - 64 Bit
