@@ -1,54 +1,31 @@
-# Soundscape Plug-in
+# d&b Soundscape DAW Plug-ins
 
-Copyright (C) 2017-2019, d&b audiotechnik GmbH
+## The d&b Soundscape DAW Plug-in enables a Digital Audio Workstation (DAW) or any other Plug-in host to control En-Scene and En-Space object parameters of any desired sound object on the DS100 platform using the OSC protocol. 
 
-## What is the Soundscape Plug-in
+The d&b Soundscape DAW Plug-in is designed to work with d&b Soundscape and the d&b DS100.
 
-The d&b Soundscape Plug-in allows the positioning of sound objects in a Soundscape system from any Digital Audio Workstation (DAW) using the OSC protocol.
-
-For more information about Soundscape visit www.dbaudio.com or www.dbsoundscape.com.
-
-## Requirements
-
-* d&b DS100 Signal Engine with active En-Scene license.
-* Digital Audio Workstation (DAW) or any other host of your preference with VST3, AU (Audio Unit), or AAX support.
-* d&b Soundscape VST3, AU, or AAX Plug-in.
+For more information about the d&b Soundscape system, go to www.dbaudio.com and www.dbsoundscape.com. 
 
 
-## Installation on Windows
+## Features 
 
-Copy the d&b Soundscape Plug-in to the designated folder of your DAW.
+d&b Soundscape integration via Plug-Ins in all relevant formats
+to control d&b Soundscape object parameters of any desired sound object 
+directly from the tracks of a DAW or with other Plug-In Host. 
 
-Note that the Plug-in requires the MS VisualStudio runtime environment to be installed on your system. For this, see ---
+Controllable Soundscape Parameters: 
 
-### VST3
-
-Copy the .vst3 file to your VST folder:
-* C:\Program Files\Common Files\VST3
-
-### AAX
-
-Copy the .aaxplugin file to the Pro Tools Plug-Ins folder:
-* C:\Program Files\Common Files\Avid\Audio\Plug-Ins
+En-Scene object parameters: 
+-	X position (absolute or relative to a coordinate mapping) 
+-	Y position (absolute or relative to a coordinate mapping) 
+-	SPREAD
+-	Delay mode 
+En-Space object parameters: 
+-	Reverb send level 
 
 
-## Installation on macOS
+## Requirements: 
 
-Copy the d&b Soundscape Plug-in to the designated folder of your DAW.
-
-### VST3
-
-Copy the .vst3 file to your VST folder:
-* for single user: ... user/<username>/Library/Audio/Plugins/VST
-* for all users: ... SystemHD/Library/Audio/VST
-
-### AU
-
-Copy the .component file to your AU folder:
-* for single user: ... user/<username>/Library/Audio/Plugins/Components
-* for all users: ... SystemHD/Library/Audio/Components
-
-### AAX
-
-Copy the .aax file to your AAX folder:
-* HD/Library/Application Support/Avid/Audio/Plug-Ins
+-	Digital Audio Workstation (DAW) or any other host of your preference to host one of the Plug-in formats. 
+-	d&b DS100 Signal Engine with active En-Scene and/or En-Space license. 
+-	DS100 and the Plug-in host connected to the same Ethernet network (to establish the OSC communication). 
