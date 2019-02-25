@@ -34,10 +34,10 @@ En-Space object parameters:
 ## available Plugin-formats: 
 
 ### Windows: 
-	- VST (2.0) - 32 & 64 Bit
-	- AAX - 64 Bit
+- 	VST (2.0) - 32 & 64 Bit
+- 	AAX - 64 Bit
 
 ### macOS: 
-	- VST (2.0) - 32 & 64 Bit
-	- AU (Audiounit) - 32 & 64 Bit
-	- AAX - 64 Bit
+- 	VST (2.0) - 32 & 64 Bit
+- 	AU (Audiounit) - 32 & 64 Bit
+- 	AAX - 64 Bit
