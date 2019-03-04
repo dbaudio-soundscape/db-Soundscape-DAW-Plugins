@@ -20,6 +20,7 @@ En-Scene object parameters:
 -	Y position (absolute or relative to a coordinate mapping) 
 -	SPREAD
 -	Delay mode 
+
 En-Space object parameters: 
 -	Reverb send level 
 
@@ -34,10 +35,12 @@ En-Space object parameters:
 ## available Plugin-formats: 
 
 ### Windows: 
+-   VST (3.0)
 - 	VST (2.0) - 32 & 64 Bit
 - 	AAX - 64 Bit
 
 ### macOS: 
+-   VST (3.0)
 - 	VST (2.0) - 32 & 64 Bit
 - 	AU (Audiounit) - 32 & 64 Bit
 - 	AAX - 64 Bit
