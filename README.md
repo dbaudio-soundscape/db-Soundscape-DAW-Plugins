@@ -1,6 +1,6 @@
 # d&b Soundscape DAW Plug-ins
 
-By downloading software from this site, you agree to the terms and conditions describen in the End-User License Agreement (provided with EULA.txt). If you do not agree with such terms and conditions do not download the software.
+By downloading software from this site, you agree to the terms and conditions described in the End-User License Agreement (provided with EULA.txt). If you do not agree with such terms and conditions do not download the software.
 
 ## The d&b Soundscape DAW Plug-in enables a Digital Audio Workstation (DAW) or any other Plug-in host to control En-Scene and En-Space object parameters of any desired sound object on the DS100 platform using the OSC protocol. 
 
