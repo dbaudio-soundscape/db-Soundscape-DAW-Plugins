@@ -38,11 +38,9 @@ En-Space object parameters:
 
 ### Windows: 
 -   VST (3.0)
-- 	VST (2.0) - 32 & 64 Bit
 - 	AAX - 64 Bit
 
 ### macOS: 
 -   VST (3.0)
-- 	VST (2.0) - 32 & 64 Bit
 - 	AU (Audiounit) - 32 & 64 Bit
 - 	AAX - 64 Bit
