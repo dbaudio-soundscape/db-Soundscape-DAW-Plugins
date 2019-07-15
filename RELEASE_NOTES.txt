@@ -6,6 +6,17 @@ Copyright (C) 2017-2019, d&b audiotechnik GmbH
 * "Bugfixes" are newly fixed bugs with the corresponding release
 * "Know issues" are issues (inconveniences or bugs) known to exist in the corresponding release
 
+
+## V2.6.1
+
+### Features
+* Added support for Touch automation via OSC
+
+### Known issues
+* Manual is still not updated, but should help nevertheless
+
+
+
 ## V2.6.0
 
 ### Features

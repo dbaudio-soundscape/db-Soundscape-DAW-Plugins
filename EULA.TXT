@@ -1,6 +1,6 @@
 End-User License Agreement (“Agreement”) for d&b Soundscape DAW Plug-in (“Software”)
 
-This is a legal Agreement between the end user (“you”) and d&b audiotechnik GmbH, Eugen-Adolff-Strasse 134, 71522 Backnang, Germany (“d&b audiotechnik”). 
+This is a legal Agreement between the end user (“you”) and d&b audiotechnik GmbH & Co. KG, Eugen-Adolff-Strasse 134, 71522 Backnang, Germany (“d&b audiotechnik”). 
 
 1.	By downloading, installing or using the Software you agree to the terms of this Agreement. If you do not agree to the terms of this Agreement you must cease and desist from downloading, installing and/or using of the Software.
 
