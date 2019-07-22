@@ -1,6 +1,6 @@
 # Release notes for d&b Soundscape DAW-Plugins
 
-Copyright (C) 2017-2019, d&b audiotechnik GmbH
+Copyright (C) 2017-2019, d&b audiotechnik GmbH & Co. KG
 
 * "Features" are newly implemented features (or parts of) with the corresponding release
 * "Bugfixes" are newly fixed bugs with the corresponding release
