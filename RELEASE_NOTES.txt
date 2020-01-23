@@ -7,6 +7,16 @@ Copyright (C) 2017-2019, d&b audiotechnik GmbH & Co. KG
 * "Know issues" are issues (inconveniences or bugs) known to exist in the corresponding release
 
 
+## V2.7.1
+
+### Features
+* Implemented multi-source surface for the overview window.
+
+### Bugfixes
+* Fixed GUI stability issues.
+
+
+
 ## V2.6.1
 
 ### Features
