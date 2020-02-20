@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="MFvkL5" name="SoundscapePlugin" projectType="audioplug" version="2.8.0"
+              bundleIdentifier="com.dbaudio.SoundscapePlugin" pluginName="d&amp;b Soundscape"
+              pluginDesc="Soundscape Plug-in for d&amp;b DS100 control" pluginManufacturer="d&amp;b audiotechnik GmbH &amp; Co. KG"
+              pluginManufacturerCode="dbAu" pluginCode="sVst" pluginChannelConfigs="{2, 2}, {1, 1}"
+              pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
+              pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="SoundscapePlugin"
+              pluginRTASCategory="" aaxIdentifier="com.dbaudio.SoundscapePlugin"
+              pluginAAXCategory="0" jucerVersion="5.4.5" companyName="d&amp;b audiotechnik GmbH &amp; Co. KG"
+              companyWebsite="http://www.dbaudio.com" companyEmail="info@dbaudio.com"
+              displaySplashScreen="0" reportAppUsage="0" companyCopyright="d&amp;b audiotechnik GmbH &amp; Co. KG"
+              pluginFormats="buildAAX,buildAU,buildVST3" buildVST="0" buildVST3="1"
+              buildAU="1" buildAUv3="0" buildRTAS="0" buildAAX="1" buildStandalone="0"
+              enableIAA="0" pluginVST3Category="Spatial">
+  <MAINGROUP id="cS7SrP" name="SoundscapePlugin">
+    <GROUP id="{DA3507CD-D9BE-4153-5873-D44DBA9EAF0C}" name="Images">
+      <FILE id="syw8sz" name="icon_hamburger_16x16.png" compile="1" resource="1"
+            file="Images/icon_hamburger_16x16.png"/>
+      <FILE id="ixTEYw" name="icon_help_16x16.png" compile="1" resource="1"
+            file="Images/icon_help_16x16.png"/>
+      <FILE id="myI6rs" name="logo_au_100x100.png" compile="1" resource="1"
+            file="Images/logo_au_100x100.png"/>
+      <FILE id="iKeecK" name="logo_avid.svg" compile="1" resource="1" file="Images/logo_avid.svg"/>
+      <FILE id="N85jpx" name="logo_dbaudio_15x15.png" compile="1" resource="1"
+            file="Images/logo_dbaudio_15x15.png"/>
+      <FILE id="PJVrqL" name="logo_dbaudio_text.svg" compile="1" resource="1"
+            file="Images/logo_dbaudio_text.svg"/>
+      <FILE id="mMqqmY" name="logo_juce.svg" compile="1" resource="1" file="Images/logo_juce.svg"/>
+      <FILE id="dauIG4" name="logo_vst_200x83.png" compile="1" resource="1"
+            file="Images/logo_vst_200x83.png"/>
+    </GROUP>
+    <GROUP id="{2B9DD386-1093-ADF5-E47F-5954774132B5}" name="Source">
+      <FILE id="nZnFg0" name="Version.cpp" compile="1" resource="0" file="Source/Version.cpp"/>
+      <FILE id="tKd5wL" name="Version.h" compile="0" resource="0" file="Source/Version.h"/>
+      <FILE id="mSMMnq" name="Gui.cpp" compile="1" resource="0" file="Source/Gui.cpp"/>
+      <FILE id="awUO6O" name="Gui.h" compile="0" resource="0" file="Source/Gui.h"/>
+      <FILE id="IpMis7" name="About.cpp" compile="1" resource="0" file="Source/About.cpp"/>
+      <FILE id="dMjhZQ" name="About.h" compile="0" resource="0" file="Source/About.h"/>
+      <FILE id="SQMIsv" name="Parameters.cpp" compile="1" resource="0" file="Source/Parameters.cpp"/>
+      <FILE id="nepks0" name="Parameters.h" compile="0" resource="0" file="Source/Parameters.h"/>
+      <FILE id="Kqvnes" name="Controller.cpp" compile="1" resource="0" file="Source/Controller.cpp"/>
+      <FILE id="dObTPr" name="Controller.h" compile="0" resource="0" file="Source/Controller.h"/>
+      <FILE id="QagIcD" name="Overview.cpp" compile="1" resource="0" file="Source/Overview.cpp"/>
+      <FILE id="SMkAdd" name="Overview.h" compile="0" resource="0" file="Source/Overview.h"/>
+      <FILE id="c3j7aS" name="Common.h" compile="0" resource="0" file="Source/Common.h"/>
+      <FILE id="FN3fsG" name="SurfaceSlider.cpp" compile="1" resource="0"
+            file="Source/SurfaceSlider.cpp"/>
+      <FILE id="HtcGNB" name="SurfaceSlider.h" compile="0" resource="0" file="Source/SurfaceSlider.h"/>
+      <FILE id="KAmwPc" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="do2yHv" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="wFy796" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="k825w0" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <VS2017 targetFolder="Builds/VisualStudio2017">
+      <WindowsTargetPlatformVersion Condition="'$(WindowsTargetPlatformVersion)' == ''"/>
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="SoundscapePlugin" debugInformationFormat="ProgramDatabase"
+                       enablePluginBinaryCopyStep="0"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="3" targetName="SoundscapePlugin" debugInformationFormat="ProgramDatabase"
+                       enablePluginBinaryCopyStep="0" linkTimeOptimisation="1"/>
+        <CONFIGURATION name="Debug64" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+                       isDebug="1" optimisation="1" targetName="SoundscapePlugin" debugInformationFormat="ProgramDatabase"
+                       enablePluginBinaryCopyStep="0" linkTimeOptimisation="0"/>
+        <CONFIGURATION name="Release64" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+                       isDebug="0" optimisation="3" targetName="SoundscapePlugin" debugInformationFormat="ProgramDatabase"
+                       enablePluginBinaryCopyStep="0" linkTimeOptimisation="1"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="..\JUCE\modules"/>
+        <MODULEPATH id="juce_graphics" path="..\JUCE\modules"/>
+        <MODULEPATH id="juce_data_structures" path="..\JUCE\modules"/>
+        <MODULEPATH id="juce_gui_basics" path="..\JUCE\modules"/>
+        <MODULEPATH id="juce_gui_extra" path="..\JUCE\modules"/>
+        <MODULEPATH id="juce_opengl" path="..\JUCE\modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="..\JUCE\modules"/>
+        <MODULEPATH id="juce_osc" path="..\JUCE\modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../JUCE/modules"/>
+      </MODULEPATHS>
+    </VS2017>
+    <XCODE_MAC targetFolder="Builds/MacOSX" hardenedRuntime="1" hardenedRuntimeOptions="com.apple.security.device.audio-input">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="SoundscapePlugin"
+                       enablePluginBinaryCopyStep="0" />
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="SoundscapePlugin"
+                       enablePluginBinaryCopyStep="0" />
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_osc" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_osc" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_QUICKTIME="disabled" JUCE_PLUGINHOST_VST="0" JUCE_PLUGINHOST_AU="0"
+               JUCE_WASAPI="0" JUCE_ASIO="0" JUCE_USE_WINRT_MIDI="0" JUCE_WASAPI_EXCLUSIVE="0"
+               JUCE_DIRECTSOUND="0" JUCE_ALSA="0" JUCE_JACK="0" JUCE_BELA="0"
+               JUCE_USE_ANDROID_OBOE="0" JUCE_USE_ANDROID_OPENSLES="0" JUCE_DISABLE_AUDIO_MIXING_WITH_OTHER_APPS="0"
+               JUCE_USE_FLAC="0" JUCE_USE_OGGVORBIS="0" JUCE_USE_MP3AUDIOFORMAT="0"
+               JUCE_USE_LAME_AUDIO_FORMAT="0" JUCE_USE_WINDOWS_MEDIA_FORMAT="0"
+               JUCE_VST3_CAN_REPLACE_VST2="0" JUCE_FORCE_USE_LEGACY_PARAM_IDS="0"
+               JUCE_FORCE_LEGACY_PARAMETER_AUTOMATION_TYPE="0" JUCE_USE_STUDIO_ONE_COMPATIBLE_PARAMETERS="1"
+               JUCE_STANDALONE_FILTER_WINDOW_USE_KIOSK_MODE="0" JUCE_PLUGINHOST_VST3="0"/>
+  <LIVE_SETTINGS>
+    <WINDOWS/>
+    <OSX/>
+  </LIVE_SETTINGS>
+</JUCERPROJECT>
