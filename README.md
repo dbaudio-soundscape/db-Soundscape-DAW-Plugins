@@ -4,6 +4,10 @@ Copyright (C) 2017-2020, d&b audiotechnik GmbH & Co. KG
 
 By downloading software from this site, you agree to the terms and conditions described in the [End-User License Agreement](EULA.md). If you do not agree with such terms and conditions do not download the software.
 
+## Latest binaries can be downloaded here: [LATEST RELEASE](../../releases/latest)
+
+---
+
 ## What is the d&b Soundscape Plug-in?
 
 The d&b Soundscape Plug-in enables a Digital Audio Workstation (DAW), Avid VENUE S6L console, or any other Plug-in host to control the basic En-Scene and En-Space parameters of any desired sound object on the DS100 platform using the OSC protocol. It is designed to work with d&b Soundscape and the d&b DS100.
