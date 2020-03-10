@@ -3,6 +3,17 @@
 Copyright (C) 2017-2020, d&b audiotechnik GmbH & Co. KG
 
 
+## V2.8.1
+
+### Features
+* When opening the multi-source surface, the selected mapping is now automatically set to the active Plug-In's mapping.
+
+### Bugfixes
+* The user's current IP address is no longer overwritten when loading showfiles or snapshots (Avid VENUE S6L) or recalling presets (DAW).
+* Avid VENUE S6L: The user's preferred Plug-In window size no longer gets reset when switching channels.
+
+---
+
 ## V2.8.0
 
 ### Features

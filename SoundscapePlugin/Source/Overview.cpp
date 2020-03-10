@@ -63,7 +63,7 @@ static constexpr int GUI_UPDATE_RATE_SLOW = 120;
 /**
  * The one and only instance of COverviewManager.
  */
-COverviewManager* COverviewManager::m_singleton = 0;
+COverviewManager* COverviewManager::m_singleton = nullptr;
 
 /**
  * Class constructor.
@@ -74,7 +74,7 @@ COverviewManager::COverviewManager()
 	m_singleton = this;
 
 	//Default overview window properties.
-	m_overview = 0;
+	m_overview = nullptr;
 	m_overviewBounds = Rectangle<int>(50, 50, 500, 500);
 }
 
@@ -83,9 +83,9 @@ COverviewManager::COverviewManager()
  */
 COverviewManager::~COverviewManager()
 {
-	jassert(m_overview == 0);
+	jassert(m_overview == nullptr);
 
-	m_singleton = 0;
+	m_singleton = nullptr;
 }
 
 /**
@@ -95,7 +95,7 @@ COverviewManager::~COverviewManager()
  */
 COverviewManager* COverviewManager::GetInstance()
 {
-	if (m_singleton == 0)
+	if (m_singleton == nullptr)
 	{
 		m_singleton = new COverviewManager();
 	}
@@ -108,7 +108,7 @@ COverviewManager* COverviewManager::GetInstance()
 void COverviewManager::OpenOverview()
 {
 	// Overview window is not currently open -> create it.
-	if (m_overview == 0)
+	if (m_overview == nullptr)
 	{
 		m_overview = new COverview();
 		m_overview->setBounds(m_overviewBounds);
@@ -131,13 +131,13 @@ void COverviewManager::OpenOverview()
  */
 void COverviewManager::CloseOverview(bool destroy)
 {
-	if (m_overview != 0)
+	if (m_overview != nullptr)
 	{
 		SaveLastOverviewBounds(GetOverviewBounds());
 
 		// Close the overview window.
 		delete m_overview;
-		m_overview = 0;
+		m_overview = nullptr;
 	}
 
 	// Closed overview, so manager no longer needed.
@@ -870,21 +870,25 @@ void COverviewMultiSurface::resized()
  */
 void COverviewMultiSurface::UpdateGui(bool init)
 {
+	// Will be set to true if any changes relevant to the multi-slider are found.
+	bool update = init;
+
 	// Update the selected mapping area.
 	int selectedMapping = 0;
 	COverviewManager* ovrMgr = COverviewManager::GetInstance();
 	if (ovrMgr)
 	{
 		selectedMapping = ovrMgr->GetSelectedMapping();
-		m_areaSelector->setSelectedId(selectedMapping);
+		if (selectedMapping != m_areaSelector->getSelectedId())
+		{
+			m_areaSelector->setSelectedId(selectedMapping, dontSendNotification);
+			update = true;
+		}
 	}
 
 	CController* ctrl = CController::GetInstance();
 	if (ctrl && m_multiSlider)
 	{
-		// Will be set to true if any changes relevant to the multi-slider are found.
-		bool update = init;
-
 		if (ctrl->PopParameterChanged(DCS_Overview, DCT_NumPlugins))
 			update = true;
 		
@@ -1269,7 +1273,7 @@ Component* CTableModelComponent::refreshComponentForCell(int rowNumber, int colu
 {
 	ignoreUnused(isRowSelected);
 
-	Component* ret = 0;
+	Component* ret = nullptr;
 
 	switch (columnId)
 	{
@@ -1279,7 +1283,7 @@ Component* CTableModelComponent::refreshComponentForCell(int rowNumber, int colu
 
 			// If an existing component is being passed-in for updating, we'll re-use it, but
 			// if not, we'll have to create one.
-			if (label == 0)
+			if (label == nullptr)
 				label = new CEditableLabelContainer(*this);
 
 			// Ensure that the component knows which row number it is located at.
@@ -1296,7 +1300,7 @@ Component* CTableModelComponent::refreshComponentForCell(int rowNumber, int colu
 
 			// If an existing component is being passed-in for updating, we'll re-use it, but
 			// if not, we'll have to create one.
-			if (comboBox == 0)
+			if (comboBox == nullptr)
 				comboBox = new CComboBoxContainer(*this);
 
 			// Ensure that the comboBox knows which row number it is located at.
@@ -1312,7 +1316,7 @@ Component* CTableModelComponent::refreshComponentForCell(int rowNumber, int colu
 
 			// If an existing component is being passed-in for updating, we'll re-use it, but
 			// if not, we'll have to create one.
-			if (textEdit == 0)
+			if (textEdit == nullptr)
 				textEdit = new CTextEditorContainer(*this);
 
 			// Ensure that the component knows which row number it is located at.
@@ -1329,7 +1333,7 @@ Component* CTableModelComponent::refreshComponentForCell(int rowNumber, int colu
 
 			// If an existing component is being passed-in for updating, we'll re-use it, but
 			// if not, we'll have to create one.
-			if (radioButton == 0)
+			if (radioButton == nullptr)
 				radioButton = new CRadioButtonContainer(*this);
 
 			// Ensure that the component knows which row number it is located at.
@@ -1341,7 +1345,7 @@ Component* CTableModelComponent::refreshComponentForCell(int rowNumber, int colu
 		break;
 
 	default:
-		jassert(existingComponentToUpdate == 0);
+		jassert(existingComponentToUpdate == nullptr);
 		break;
 	}
 

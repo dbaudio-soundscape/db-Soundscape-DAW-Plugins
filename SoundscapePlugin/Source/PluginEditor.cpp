@@ -59,6 +59,15 @@ static constexpr int GUI_UPDATE_RATE_SLOW = 120;
  */
 static constexpr int GUI_UPDATE_DELAY_TICKS = 15;
 
+/*
+ * Default Plug-In window size.
+ */
+static constexpr Point<int> GUI_DEFAULT_PLUGIN_WINDOW_SIZE(488, 380);
+
+/*
+ * Initialize user's Plug-In window size with default values.
+ */
+Point<int> CPluginEditor::m_pluginWindowSize = GUI_DEFAULT_PLUGIN_WINDOW_SIZE;
 
 /*
 ===============================================================================
@@ -229,7 +238,7 @@ CPluginEditor::CPluginEditor(CPlugin& parent)
 	addAndMakeVisible(m_overviewButton.get());
 
 	// No overlay (Overview or About) to start with.
-	m_overlay = 0;
+	m_overlay = nullptr;
 
 	// Label for Plugin' display name.
 	m_displayNameLabel = std::make_unique<CLabel>("DisplayName");
@@ -264,10 +273,19 @@ CPluginEditor::CPluginEditor(CPlugin& parent)
 		addAndMakeVisible(m_overviewMultiSliderButton.get());
 
 		// Larger GUI for consoles.
-		setResizeLimits(684, 544, 1920, 1080); 
+		if (m_pluginWindowSize == GUI_DEFAULT_PLUGIN_WINDOW_SIZE)
+		{
+			m_pluginWindowSize = Point<int>(684, 544);
+		}
 	}
-	else
-		setResizeLimits(488, 380, 1920, 1080);
+
+	// Backup user's window size, since setResizeLimits() calls resized(), which overwrites it.
+	Point<int> tmpSize(m_pluginWindowSize);
+	setResizeLimits(488, 380, 1920, 1080);
+	m_pluginWindowSize = tmpSize;
+
+	// Resize the new plugin's window to the same as the last.
+	setSize(m_pluginWindowSize.getX(), m_pluginWindowSize.getY());
 
 	// Allow resizing of plugin window.
 	setResizable(true, true);
@@ -303,7 +321,7 @@ CAudioParameterFloat* CPluginEditor::GetParameterForSlider(CSlider* slider)
 
 	// Should not make it this far.
 	jassertfalse;
-	return 0;
+	return nullptr;
 }
 
 /**
@@ -433,7 +451,7 @@ void CPluginEditor::buttonClicked(Button *button)
 	if (pro)
 	{
 		// Rx / Tx Buttons
-		if (((button == m_oscModeSend.get()) || (button == m_oscModeReceive.get())) && (m_oscModeSend != 0) && (m_oscModeReceive != 0))
+		if (((button == m_oscModeSend.get()) || (button == m_oscModeReceive.get())) && (m_oscModeSend != nullptr) && (m_oscModeReceive != nullptr))
 		{
 			ComsMode oldMode = pro->GetComsMode();
 			ComsMode newFlag = (button == m_oscModeSend.get()) ? CM_Tx : CM_Rx;
@@ -470,6 +488,11 @@ void CPluginEditor::buttonClicked(Button *button)
 			{
 				// Show / hide the Overview Multi-slider overlay.
 				ToggleOverlay(AOverlay::OT_MultiSlide);
+
+				// Set the selected coordinate mapping on the Overview slider to this Plug-in's setting.
+				COverviewManager* ovrMgr = COverviewManager::GetInstance();
+				if (ovrMgr)
+					ovrMgr->SetSelectedMapping(pro->GetMappingId());
 			}
 		}
 
@@ -509,12 +532,12 @@ void CPluginEditor::ToggleOverlay(AOverlay::OverlayType type)
 	AOverlay::OverlayType previousType = AOverlay::OT_Unknown;
 
 	// Overview already exists, remove and delete it.
-	if (m_overlay != 0)
+	if (m_overlay != nullptr)
 	{
 		previousType = m_overlay->GetOverlayType();
 
 		// Toggle off the existing overlay's button, if is still turned on.
-		CButton* tmpButton = 0;
+		CButton* tmpButton = nullptr;
 		switch (previousType)
 		{
 			case AOverlay::OT_Overview:
@@ -530,12 +553,12 @@ void CPluginEditor::ToggleOverlay(AOverlay::OverlayType type)
 				jassertfalse;
 				break;
 		}
-		if ((tmpButton != 0) && (tmpButton->getToggleState() == true))
+		if ((tmpButton != nullptr) && (tmpButton->getToggleState() == true))
 			tmpButton->setToggleState(false, dontSendNotification);
 
 		// Remove and delete old overlay.
 		removeChildComponent(m_overlay.get());
-		m_overlay.reset(0); // Set scoped pointer to 0
+		m_overlay.reset(nullptr); // Set scoped pointer to 0
 	}
 
 	// Create the new specified overlay.
@@ -718,6 +741,9 @@ void CPluginEditor::resized()
 #ifdef JUCE_DEBUG	
 	m_debugTextEdit->setBounds(125 + 20, vStartPos + 65, 160 + xOffset, 160 + yOffset);
 #endif
+
+	// Remember the user's preferred Plug-In window size.
+	m_pluginWindowSize.setXY(w, h);
 }
 
 /**
@@ -855,7 +881,7 @@ void CPluginEditor::UpdateGui(bool init)
 
 	// Whenever the Multi-slider overlay is active, switch to fast refresh for smoother movements 
 	// even if nothing changes in this plugin (there may be position changes in other plugins).
-	if ((m_overlay != 0) &&
+	if ((m_overlay != nullptr) &&
 		(m_overlay->GetOverlayType() == AOverlay::OT_MultiSlide))
 		somethingChanged = true;
 

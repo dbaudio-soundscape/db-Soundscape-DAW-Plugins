@@ -340,7 +340,12 @@ void CPlugin::OnOverviewButtonClicked()
 {
 	COverviewManager* ovrMgr = COverviewManager::GetInstance();
 	if (ovrMgr)
+	{
 		ovrMgr->OpenOverview();
+
+		// Set the selected coordinate mapping on the Overview slider to this Plug-in's setting.
+		ovrMgr->SetSelectedMapping(GetMappingId());
+	}
 }
 
 /**
@@ -642,7 +647,11 @@ void CPlugin::InitializeSettings(int sourceId, int mappingId, String ipAddress, 
 		SetMappingId(DCS_Host, mappingId);
 		SetComsMode(DCS_Host, newMode);
 
-		ctrl->InitGlobalSettings(DCS_Host, ipAddress, oscMsgRate);
+		// Only overwite the current IP settings if they haven't been changed from the defaults.
+		if (GetIpAddress() == ctrl->GetDefaultIpAddress())
+		{
+			ctrl->InitGlobalSettings(DCS_Host, ipAddress, oscMsgRate);
+		}
 	}
 }
 

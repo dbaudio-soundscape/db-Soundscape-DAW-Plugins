@@ -137,7 +137,7 @@ CController::~CController()
  */
 CController* CController::GetInstance()
 {
-	if (m_singleton == 0)
+	if (m_singleton == nullptr)
 	{
 		m_singleton = new CController();
 	}
@@ -578,7 +578,7 @@ void CController::timerCallback()
 								((m_heartBeatsTx * m_oscMsgRate) > KEEPALIVE_INTERVAL));
 
 		int i;
-		CPlugin* pro = 0;
+		CPlugin* pro = nullptr;
 		ComsMode mode;
 		String messageString;
 

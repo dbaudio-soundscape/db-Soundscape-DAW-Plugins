@@ -59,7 +59,7 @@ For more information about the d&b Soundscape system, go to www.dbaudio.com and 
   
 * On MacOS systems, simply double-clicking the **pkg** file will install the Plug-in into the correct location. The default installation paths are as follows:  
   * **VST3:** /Library/Audio/Plug-Ins/VST3
-  * **AU:** /Library/Audio/Plug-Ins/Component
+  * **AU:** /Library/Audio/Plug-Ins/Components
   * **AAX:** /Library/Application Support/Avid/Audio/Plug-Ins
   
 * On Avid VENUE S6L consoles, please install the Plug-in as follows:

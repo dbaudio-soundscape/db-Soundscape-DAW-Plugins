@@ -62,7 +62,7 @@ private:
 	/**
 	 * AudioProcessor object to act as parent to this component.
 	 */
-	AudioProcessor*	m_parent = 0;
+	AudioProcessor*	m_parent = nullptr;
 
 	JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CSurfaceSlider)
 };

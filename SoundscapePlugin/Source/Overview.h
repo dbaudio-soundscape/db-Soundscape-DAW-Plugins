@@ -100,7 +100,7 @@ protected:
 	/**
 	 * Remember the last active tab.
 	 */
-	int						m_selectedTab = 0;// CTabbedComponent::OTI_Table;
+	int						m_selectedTab = 0;
 
 	/**
 	 * Remember the last selected coordinate mapping for the multi-slider

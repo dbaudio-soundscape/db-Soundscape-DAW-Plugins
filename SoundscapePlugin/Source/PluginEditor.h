@@ -233,6 +233,11 @@ private:
 	 */
 	int m_ticksSinceLastChange = 0;
 
+	/**
+	 * Keep track of the user's preferred Plug-In window size, and use it when opening a fresh window.
+	 */
+	static Point<int> m_pluginWindowSize;
+
 #ifdef JUCE_DEBUG
 	/**
 	 * Special textfield used for displaying debugging messages.
