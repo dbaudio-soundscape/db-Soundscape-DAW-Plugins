@@ -199,7 +199,11 @@ The settings at the bottom of the Plug-in's interface are global and are shared 
 
 ### Known Issues
 
-#### Automation envelopes can only be recorded when the Plug-in's GUI window is open.
+#### Reaper: Automation envelopes can only be recorded when the Plug-in's GUI window is open.
 
-* This issue seems to be specific to Reaper.
 * The only current workaround is to leave all Plug-in windows open when recording envelopes.
+
+#### Avid S6L: Input and Mapping do not change reliably when loading showfiles or snapshots.
+
+* This can occur when only Input or Mapping have changed, but all other parameters (such as X/Y, Spread, etc.) in the showfile or snapshot being loaded are identical to the current values.
+* When storing a showfile or snapshot after having only changed the Input or Mapping, nudge one of the other parameters to ensure that a change is registered when loading it later.
