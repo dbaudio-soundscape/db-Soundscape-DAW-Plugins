@@ -384,8 +384,8 @@ void CPlugin::getStateInformation(MemoryBlock& destData)
 	stream.writeInt(overviewBounds.getHeight());
 	stream.writeInt(m_pluginId);
 
-#ifdef JUCE_DEBUG
-	PushDebugMessage("CPlugin::getStateInformation");
+#ifdef DB_SHOW_DEBUG
+	PushDebugMessage(String::formatted("CPlugin::getStateInformation, pId=%d, sId=%d >>", m_pluginId, GetSourceId()));
 #endif
 }
 
@@ -399,10 +399,6 @@ void CPlugin::getStateInformation(MemoryBlock& destData)
  */
 void CPlugin::setStateInformation(const void* data, int sizeInBytes)
 {
-#ifdef JUCE_DEBUG
-	PushDebugMessage("CPlugin::setStateInformation");
-#endif
-
 	MemoryInputStream stream(data, static_cast<size_t> (sizeInBytes), false);
 
 	// Only binary data from Plugin V2.0 onwards is supported.
@@ -438,6 +434,10 @@ void CPlugin::setStateInformation(const void* data, int sizeInBytes)
 		// with data which does not necessarily belong to the correct instance, and which will overwrite the correct settings.
 		if ((pluginId == m_pluginId) || (pluginId == -1))
 		{
+#ifdef DB_SHOW_DEBUG
+			PushDebugMessage(String::formatted("CPlugin::setStateInformation: pId=%d, sId=%d <<", pluginId, sourceId));
+#endif
+
 			InitializeSettings(sourceId, mapId, ipAddress, msgRate, newComMode);
 
 			SetParameterValue(DCS_Host, ParamIdx_X, xPos);
@@ -454,7 +454,19 @@ void CPlugin::setStateInformation(const void* data, int sizeInBytes)
 					ovrMgr->SaveLastOverviewBounds(overviewBounds);
 			}
 		}
+#ifdef DB_SHOW_DEBUG
+		else
+		{
+			PushDebugMessage(String::formatted("CPlugin::setStateInformation: pId mismatch, %d != %d <<", pluginId, m_pluginId));
+		}
+#endif
 	}
+#ifdef DB_SHOW_DEBUG
+	else
+	{
+		PushDebugMessage("CPlugin::setStateInformation: stream version too low <<");
+	}
+#endif
 }
 
 /**
@@ -527,6 +539,13 @@ void CPlugin::SetMappingId(DataChangeSource changeSource, int mappingId)
 
 		// Signal change to other modules in the plugin.
 		SetParameterChanged(changeSource, dct);
+
+		// Since mappingID is not registered as an AudioProcessorParameter, we need to force the host
+		// to call getStateInformation, otherwise we may save a project file or snapshot with an outdated mappingID.
+		if (changeSource == DCS_Gui)
+		{
+			updateHostDisplay();
+		}
 	}
 }
 
@@ -548,11 +567,22 @@ void CPlugin::SetSourceId(DataChangeSource changeSource, SourceId sourceId)
 {
 	if (m_sourceId != sourceId)
 	{
+#ifdef DB_SHOW_DEBUG
+		PushDebugMessage("CPlugin::SetSourceId " + String(m_sourceId) + String(" to ") + String(jmin(SOURCE_ID_MAX, jmax(SOURCE_ID_MIN, sourceId))));
+#endif
+
 		// Ensure it's within allowed range.
 		m_sourceId = jmin(SOURCE_ID_MAX, jmax(SOURCE_ID_MIN, sourceId));
 
 		// Signal change to other modules in the plugin.
 		SetParameterChanged(changeSource, DCT_SourceID);
+
+		// Since sourceID is not registered as an AudioProcessorParameter, we need to force the host
+		// to call getStateInformation, otherwise we may save a project file or snapshot with an outdated sourceID.
+		if (changeSource == DCS_Gui)
+		{
+			updateHostDisplay();
+		}
 	}
 }
 
@@ -687,9 +717,9 @@ bool CPlugin::GetBypass() const
 	return (m_bypassParam->getIndex() == 1);
 }
 
-#ifdef JUCE_DEBUG
+#ifdef DB_SHOW_DEBUG
 /**
- * Helper method to append a message onto the debugging buffer. This buffer can then be flushed with FlushDebugMessages().
+ * Helper method to append a message onto the debugging buffer. This buffer can then be flushed with GetDebugMessages().
  * @param message Message to be printed. A timestamp will automatically be prepended.
  */
 void CPlugin::PushDebugMessage(String message)
@@ -705,14 +735,12 @@ void CPlugin::PushDebugMessage(String message)
 }
 
 /**
- * Helper method to get the contents of the debug message buffer. This call also clears the buffer.
+ * Helper method to get the contents of the debug message buffer. 
  * @ret		Messages to be printed, one per line. 
  */
-String CPlugin::FlushDebugMessages()
+String CPlugin::GetDebugMessages()
 {
-	String ret(m_debugMessageBuffer);
-	m_debugMessageBuffer.clear();
-	return ret;
+	return m_debugMessageBuffer;
 }
 #endif
 

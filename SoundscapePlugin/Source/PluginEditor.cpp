@@ -253,7 +253,7 @@ CPluginEditor::CPluginEditor(CPlugin& parent)
 	m_aboutButton->addListener(this);
 	addAndMakeVisible(m_aboutButton.get());
 
-#ifdef JUCE_DEBUG
+#ifdef DB_SHOW_DEBUG
 	// Special testfield for displaying debugging messages.
 	m_debugTextEdit = std::make_unique<TextEditor>("Debug");
 	m_debugTextEdit->setMultiLine(true, true);
@@ -738,7 +738,7 @@ void CPluginEditor::resized()
 	m_versionLabel->setBounds(w - 103, 21, 42, 15); 
 	m_displayNameLabel->setBounds(5, 242 + yOffset + 45, 160 + (xOffset / 2), 25);
 
-#ifdef JUCE_DEBUG	
+#ifdef DB_SHOW_DEBUG	
 	m_debugTextEdit->setBounds(125 + 20, vStartPos + 65, 160 + xOffset, 160 + yOffset);
 #endif
 
@@ -869,12 +869,12 @@ void CPluginEditor::UpdateGui(bool init)
 			m_onlineLed->setToggleState(pro->GetOnline(), dontSendNotification);
 		}
 
-#ifdef JUCE_DEBUG
+#ifdef DB_SHOW_DEBUG
+		// Always show all debug messages.
+		m_debugTextEdit->setText(pro->GetDebugMessages());
 		if (pro->PopParameterChanged(DCS_Gui, DCT_DebugMessage))
 		{
-			// Append newest messages.
 			m_debugTextEdit->moveCaretToEnd();
-			m_debugTextEdit->insertTextAtCaret(pro->FlushDebugMessages());
 		}
 #endif
 	}

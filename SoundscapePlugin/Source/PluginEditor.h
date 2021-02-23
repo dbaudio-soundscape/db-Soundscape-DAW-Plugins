@@ -238,7 +238,7 @@ private:
 	 */
 	static Point<int> m_pluginWindowSize;
 
-#ifdef JUCE_DEBUG
+#ifdef DB_SHOW_DEBUG
 	/**
 	 * Special textfield used for displaying debugging messages.
 	 */

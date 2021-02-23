@@ -103,9 +103,9 @@ public:
 
 	void OnOverviewButtonClicked();
 
-#ifdef JUCE_DEBUG
+#ifdef DB_SHOW_DEBUG
 	void PushDebugMessage(String message);
-	String FlushDebugMessages();
+	String GetDebugMessages();
 #endif
 
 	bool IsTargetHostAvidConsole() const;
@@ -229,7 +229,7 @@ protected:
 	 */
 	DataChangeSource			m_currentChangeSource = DCS_Host;
 
-#ifdef JUCE_DEBUG
+#ifdef DB_SHOW_DEBUG
 	/**
 	 * Temp buffer for debugging messages. 
 	 */

@@ -219,8 +219,8 @@ PluginId CController::AddProcessor(CPlugin* p)
 	p->SetSourceId(DCS_Osc, currentMaxSourceId + 1);
 
 	PluginId newPluginId = static_cast<PluginId>(m_processors.size() - 1);
-#ifdef JUCE_DEBUG
-	p->PushDebugMessage("CController::AddProcessor: #" + String(newPluginId));
+#ifdef DB_SHOW_DEBUG
+	p->PushDebugMessage(String::formatted("++ CController::AddProcessor: pId=%d ++", newPluginId));
 #endif
 
 	return newPluginId;
