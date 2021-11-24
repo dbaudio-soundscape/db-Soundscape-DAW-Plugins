@@ -192,16 +192,17 @@ The settings at the bottom of the Plug-in's interface are global and are shared 
   The IP address of the DS100 can be obtained from the **«Info»** tab of the **«Device»** view in R1 V3.
 * Check that the envelope automation mode on your DAW is set to **«Write»**, **«Touch»**, or **«Latch»**. When set to **«Read»**, the envelope's current values may have priority over whatever the Plug-in is receiving from the DS100 via OSC.
 
+#### Reaper: Automation envelopes can only be recorded when the Plug-in's GUI window is open.
+
+* By default, when the plugin's window is closed, parameter automation envelopes will not get written to even though the parameter values may be changing. 
+* To fix this, go into Reaper's Preferences > VST > VST compatibility > Parameter automation notifications, and set it to **«Process all notifications»**.
+
 #### The sound object on the Plug-in's GUI "jitters" or jumps constantly between two positions.
 
 * This may occur when the Plug-in's **«Rx»** mode is enabled, but the track's automation mode in the DAW is set to **«Read»**. If the sound object's position in the DS100 and the position given by the automation envelope conflict with each other, the Plug-in's GUI will attempt to display both conflicting positions at the same time.
 * To resolve this, ensure the Plug-in's OSC communication mode and the track's automation mode match your current workflow. Use **«Rx»** mode and **«Write»** automation for recording envelopes; use **«Tx»** mode and **«Read»** automation when playing them back during the show.
 
 ### Known Issues
-
-#### Reaper: Automation envelopes can only be recorded when the Plug-in's GUI window is open.
-
-* The only current workaround is to leave all Plug-in windows open when recording envelopes.
 
 #### Avid S6L: Input and Mapping do not change reliably when loading showfiles or snapshots.
 
