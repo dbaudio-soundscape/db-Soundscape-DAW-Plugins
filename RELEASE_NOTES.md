@@ -1,7 +1,14 @@
 # d&b Soundscape Plug-in: Release notes
 
-Copyright (C) 2017-2020, d&b audiotechnik GmbH & Co. KG
+Copyright (C) 2017-2022, d&b audiotechnik GmbH & Co. KG
 
+
+## V2.8.3
+
+### Bugfixes
+* Plugin input numbers no longer get changed when loading a second project on a new tab in the same DAW.
+
+---
 
 ## V2.8.1
 
