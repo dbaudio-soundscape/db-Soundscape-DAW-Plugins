@@ -429,37 +429,28 @@ void CPlugin::setStateInformation(const void* data, int sizeInBytes)
 			pluginId = stream.readInt();
 		}
 
-		// Only apply the de-serialized data if the stored PluginID matches our own.
-		// When loading projects and when adding new plugin instances, Pro Tools likes to call setStateInformation 
-		// with data which does not necessarily belong to the correct instance, and which will overwrite the correct settings.
-		if ((pluginId == m_pluginId) || (pluginId == -1))
-		{
+		// NOTE: Special workaround for Pro Tools no longer needed since 
+		// the introduction of the JucePlugin_AAXDisableDefaultSettingsChunks flag.
+
 #ifdef DB_SHOW_DEBUG
-			PushDebugMessage(String::formatted("CPlugin::setStateInformation: pId=%d, sId=%d <<", pluginId, sourceId));
+		PushDebugMessage(String::formatted("CPlugin::setStateInformation: pId=%d, sId=%d <<", pluginId, sourceId));
 #endif
 
-			InitializeSettings(sourceId, mapId, ipAddress, msgRate, newComMode);
+		InitializeSettings(sourceId, mapId, ipAddress, msgRate, newComMode);
 
-			SetParameterValue(DCS_Host, ParamIdx_X, xPos);
-			SetParameterValue(DCS_Host, ParamIdx_Y, yPos);
-			SetParameterValue(DCS_Host, ParamIdx_ReverbSendGain, reverb);
-			SetParameterValue(DCS_Host, ParamIdx_SourceSpread, spread);
-			SetParameterValue(DCS_Host, ParamIdx_DelayMode, delaym);
+		SetParameterValue(DCS_Host, ParamIdx_X, xPos);
+		SetParameterValue(DCS_Host, ParamIdx_Y, yPos);
+		SetParameterValue(DCS_Host, ParamIdx_ReverbSendGain, reverb);
+		SetParameterValue(DCS_Host, ParamIdx_SourceSpread, spread);
+		SetParameterValue(DCS_Host, ParamIdx_DelayMode, delaym);
 
-			// Only set overview size if host is not a console, where size is fix.
-			if (!IsTargetHostAvidConsole())
-			{
-				COverviewManager* ovrMgr = COverviewManager::GetInstance();
-				if (ovrMgr)
-					ovrMgr->SaveLastOverviewBounds(overviewBounds);
-			}
-		}
-#ifdef DB_SHOW_DEBUG
-		else
+		// Only set overview size if host is not a console, where size is fix.
+		if (!IsTargetHostAvidConsole())
 		{
-			PushDebugMessage(String::formatted("CPlugin::setStateInformation: pId mismatch, %d != %d <<", pluginId, m_pluginId));
+			COverviewManager* ovrMgr = COverviewManager::GetInstance();
+			if (ovrMgr)
+				ovrMgr->SaveLastOverviewBounds(overviewBounds);
 		}
-#endif
 	}
 #ifdef DB_SHOW_DEBUG
 	else
