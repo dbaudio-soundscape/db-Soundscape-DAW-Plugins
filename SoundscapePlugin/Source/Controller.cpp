@@ -42,7 +42,7 @@ namespace dbaudio
 {
 
 
-static constexpr int OSC_INTERVAL_MIN = 20;		//< Minimum supported OSC messaging rate in milliseconds
+static constexpr int OSC_INTERVAL_MIN = 40;		//< Minimum supported OSC messaging rate in milliseconds
 static constexpr int OSC_INTERVAL_MAX = 5000;	//< Maximum supported OSC messaging rate in milliseconds
 static constexpr int OSC_INTERVAL_DEF = 50;		//< Default OSC messaging rate in milliseconds
 
