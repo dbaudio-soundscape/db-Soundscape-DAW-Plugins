@@ -3,6 +3,13 @@
 Copyright (C) 2017-2022, d&b audiotechnik GmbH & Co. KG
 
 
+## V2.8.4
+
+### Features
+* MacOS binaries are now notarized.
+
+---
+
 ## V2.8.3
 
 ### Bugfixes
