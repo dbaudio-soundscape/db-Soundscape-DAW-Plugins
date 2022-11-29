@@ -975,6 +975,7 @@ void CPlugin::releaseResources()
 }
 
 #ifndef JucePlugin_PreferredChannelConfigurations
+#pragma message("CPlugin: JucePlugin_PreferredChannelConfigurations not set, isBusesLayoutSupported returns true.") 
 /**
  * Callback to query if the AudioProcessor supports a specific layout.
  * This callback is called when the host probes the supported bus layouts via the checkBusesLayoutSupported method. 
@@ -987,6 +988,8 @@ bool CPlugin::isBusesLayoutSupported(const BusesLayout& layouts) const
 	ignoreUnused(layouts);
 	return true;
 }
+#else
+#pragma message("CPlugin: JucePlugin_PreferredChannelConfigurations set, isBusesLayoutSupported not overriden.") 
 #endif
 
 
