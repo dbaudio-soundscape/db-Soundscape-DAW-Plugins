@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="MFvkL5" name="SoundscapePlugin" projectType="audioplug" version="2.8.4"
+<JUCERPROJECT id="MFvkL5" name="SoundscapePlugin" projectType="audioplug" version="2.8.5"
               bundleIdentifier="com.dbaudio.SoundscapePlugin" pluginName="d&amp;b Soundscape"
               pluginDesc="Soundscape Plug-in for d&amp;b DS100 control" pluginManufacturer="d&amp;b audiotechnik GmbH &amp; Co. KG"
               pluginManufacturerCode="dbAu" pluginCode="sVst" pluginChannelConfigs="{2, 2}, {1, 1}"
