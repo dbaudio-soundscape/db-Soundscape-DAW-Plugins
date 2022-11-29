@@ -3,6 +3,13 @@
 Copyright (C) 2017-2022, d&b audiotechnik GmbH & Co. KG
 
 
+## V2.8.5
+
+### Bugfixes
+* Fixed inadvertently using some outdated JUCE modules when building binaries for previous release.
+
+---
+
 ## V2.8.4
 
 ### Features
