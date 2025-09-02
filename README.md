@@ -1,8 +1,10 @@
 # d&b Soundscape Plug-in
 
-Copyright (C) 2017-2020, d&b audiotechnik GmbH & Co. KG
+Copyright (C) 2017-2025, d&b audiotechnik GmbH & Co. KG
 
 By downloading software from this site, you agree to the terms and conditions described in the [End-User License Agreement](EULA.md). If you do not agree with such terms and conditions do not download the software.
+
+## Please note that this repository is no longer maintained. 
 
 ## Latest binaries can be downloaded here: [LATEST RELEASE](../../releases/latest)
 
